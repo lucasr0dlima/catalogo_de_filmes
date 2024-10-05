@@ -1,0 +1,24 @@
+<db>
+  <dt> <strong> Nome: </strong> </dt>
+  <dd> <%= @director.name %></dd>
+
+  <dt> <strong> Nacionalidade: </strong> </dt>
+  <dd> <%= @director.nationality %></dd>
+
+  <dt> <strong> Data de nascimento: </strong> </dt>
+  <dd> <%= @director.birth_date.strftime("%d/%m/%Y") %></dd>
+
+  <dt> <strong> Gênero favorito: </strong> </dt>
+  <dd> <%= Genre.find(@director.genre_id).name %></dd>
+
+  <dt> <strong> Filmes: </strong> </dt>
+  <% @director.movies.each do |movie| %>
+    <dd> <%= link_to movie.title, movie_path(movie.id) %></dd>
+  <% end %>
+</db> <br />
+
+<em><%= link_to 'Editar Diretor', edit_director_path(@director.id) %>
+
+<em><%= link_to 'Deletar Diretor', director_path(@director.id), data: {turbo_method: "delete", turbo_confirm: "Tem certeza?"} %> </em>
+
+<%= link_to 'Todos os Diretores', directors_path %>

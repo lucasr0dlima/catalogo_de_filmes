@@ -1,0 +1,24 @@
+<%= form_for @movie do |f| %>
+  <%= f.label :title, 'Título:' %>
+  <%= f.text_field :title %> <br />
+
+  <%= f.label :launch_year, 'Ano de lançamento:' %>
+  <%= f.select :launch_year, options_for_select((Date.today.year - 100)..Date.today.year) %> <br />
+
+  <%= f.label :sinopsis, 'Sinopse:' %>
+  <%= f.text_area :sinopsis %> <br />
+
+  <%= f.label :country, 'País de origem:' %>
+  <%= f.text_field :country %> <br />
+
+  <%= f.label :duration, 'Duração (em minutos):' %>
+  <%= f.number_field :duration, min: 1 %> min <br />
+
+  <%= f.label :director_id, 'Diretor:' %>
+  <%= f.collection_select :director_id, Director.all, :id, :name%> <br />
+
+  <%= f.label :genre_id, 'Gênero:' %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name%> <br />
+  
+  <%= f.submit 'Enviar' %>
+<% end %>  

@@ -1,0 +1,14 @@
+<h2> <strong> Gêneros de filme: </strong> </h2>
+
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>  
+
+<ul>
+<% @genres.each do |genre|%>
+  <li><%= link_to genre.name, genre_path(genre.id) %> </li> <br />
+<% end %>
+</ul>
+
+<%= link_to 'Adicionar Gênero', new_genre_path %>
+

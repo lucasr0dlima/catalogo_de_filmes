@@ -1,0 +1,10 @@
+<br / 
+
+<h2>Todos os diretores:</h2> <br />
+<ul>
+<% @directors.each do |director|%>
+  <li><%= link_to director.name, director_path(director.id)  %> </li>
+<% end %>
+</ul>
+
+<%= link_to 'Adicionar Diretor', new_director_path %> 

@@ -1,0 +1,29 @@
+<db>
+  <dt> <strong> Título: </strong> </dt>
+  <dd> <%= @movie.title %></dd>
+
+  <dt> <strong> Ano de Lançamento: </strong> </dt>
+  <dd> <%= @movie.launch_year %></dd>
+
+  <dt> <strong> Sinopse: </strong> </dt>
+  <dd> <%= @movie.sinopsis %></dd>
+
+  <dt> <strong> Páis de Origem: </strong> </dt>
+  <dd> <%= @movie.country %></dd>
+
+  <dt> <strong> Duração: </strong> </dt>
+  <dd> <%= @movie.duration %> minutos</dd>
+
+  <dt> <strong> Diretor: </strong> </dt>
+  <dd> <%= link_to @movie.director.name, director_path(@movie.director.id) %></dd>
+
+  <dt> <strong> Gênero: </strong> </dt>
+  <dd> <%= link_to @movie.genre.name, genre_path(@movie.genre.id) %></dd>
+</db> <br />
+
+<em><%= link_to 'Editar Filme', edit_movie_path(@movie.id) %> </em>
+
+<em><%= link_to 'Deletar Filme', movie_path(@movie.id), data: {turbo_method: "delete", turbo_confirm: "Tem certeza?"} %> </em>
+
+<%= link_to 'Todos os filmes', movies_path %>
+

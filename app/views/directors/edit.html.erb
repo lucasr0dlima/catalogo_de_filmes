@@ -1,0 +1,15 @@
+<%= form_for @director do |f| %>
+  <%= f.label :name, 'Nome:' %>
+  <%= f.text_field :name %> <br />
+
+  <%= f.label :nationality, 'Nacionaliade:' %>
+  <%= f.text_field :nationality %> <br />
+
+  <%= f.label :birth_date, 'Data de Nascimento:' %>
+  <%= f.date_select :birth_date, order: [:day, :month, :year], start_year: Date.today.year - 100 %> <br />
+
+  <%= f.label :genre_id, 'Gênero de filme favorito:' %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name%> <br />
+
+  <%= f.submit 'Enviar' %>
+<% end %>
